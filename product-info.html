@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -23,15 +24,44 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block use" style="color: white;" >  </a>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+   
+    <div class="list-group" id="prod-info" ></div>
+    <div class="list-group" id="coments" > </div>
+    
+    
+    
+      <div>
+          <p style="font-weight: bold; margin-top: 7px;">Agregar nuevo comentario</p>
+          
+
+          <form action="" method="POST" onsubmit="return comentar()" >
+
+          <textarea type="text" id="opinion" cols="60" rows="4" placeholder="Escribe tu comentario"></textarea>
+          
+          <p style="font-weight: bold;">Calificar</p>
+
+            <p class="clasificacion">
+                <input class="instar" style="display: none;" id="radio1" type="radio" name="estrellas" value="5">
+                    <label for="radio1" class="cali" style="font-size: 35px;">★</label>
+                <input class="instar" style="display: none;" id="radio2" type="radio" name="estrellas" value="4">
+                   <label for="radio2" class="cali" style=" font-size: 35px;">★</label>
+                <input class="instar" style="display: none;" id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3" class="cali" style=" font-size: 35px;">★</label>
+                <input class="instar" style="display: none;" id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4" class="cali" style=" font-size: 35px;">★</label>
+                <input class="instar" style="display: none;" id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5" class="cali" style=" font-size: 35px;">★</label>
+            </p>
+            <input type="submit" id="send" class="btn btn-info">
+
+
+        </form>
+      </div>
+
   </div>
   <footer class="text-muted">
     <div class="container">

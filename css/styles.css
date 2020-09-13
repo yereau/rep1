@@ -139,3 +139,19 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.cali{
+  color: grey;
+}
+
+.cali:hover{color:orange;} 
+
+
+.cali:hover ~ label{color:orange;}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  
+}
+
+.instar:checked ~ label{color:orange;}
