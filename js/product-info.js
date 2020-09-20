@@ -1,5 +1,6 @@
 var categoriesArray = [];
 var comentsArray = [];
+var relatedArray = [];
 
 function showProductInfo(array){
 
@@ -20,10 +21,10 @@ function showProductInfo(array){
                           <p >`+ array.currency + " " + array.cost +`</p>
                       </div>
 
-                             <div>
+                            <div>
                                  <p Style="font-weight: bold; margin-bottom: 0px" > Descripción </p>
                                  <p >`+ array.description +`</p>
-                             </div>
+                            </div>
 
                                     <div>
                                         <p Style="font-weight: bold; margin-bottom: 0px" > Categoría </p>
@@ -51,18 +52,14 @@ function showProductInfo(array){
                                                         </tr>
                                                     </table>
                                             </div>
-
-                                                <div>
-                                                    <p Style="font-weight: bold;margin-top: 7px " > Comentarios </p>
-                                                </div>
-
+                                                        <div>
+                                                            <p Style="font-weight: bold;margin-top: 7px " > Comentarios </p>
+                                                        </div>
              </div>
         `
 
         document.getElementById("prod-info").innerHTML = htmlContentToAppend;
-    
 }
-
 
 function showProductComent(array){
  
@@ -75,17 +72,11 @@ function showProductComent(array){
         comentsArray.push(newcoment);
     }else{
         delete comentsArray[4];
-     
 }
-    
-
-
 
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
         let comen = array[i];
-        
-       
 
         var star = "";
         for(let s = 1; s <= comen.score; s++){
@@ -99,20 +90,15 @@ function showProductComent(array){
 
         <div>
             <div class="list-group-item ">
-                
                 <div>
                     <p > <span style="font-weight: bold;"> `+ comen.user + ` </span> `+ " - " + comen.dateTime + " - "  + star +` </p>
                     <p> `+ comen.description + ` </p>
-                </div>    
-                
+                </div>     
            </div>
-
-           </div>
-           
+        </div> 
         `
     }
         document.getElementById("coments").innerHTML = htmlContentToAppend;
-    
 }
 
 function comentar(){
@@ -127,20 +113,40 @@ function comentar(){
       else{
 
         window.sessionStorage.setItem("description", opinionnew);
-        window.sessionStorage.setItem("dateTime", time);
-
-       // comen.push(comm);
-         // showcoments(comen);
-    
- 
-      
-      
+        window.sessionStorage.setItem("dateTime", time);    
     }
 }
 
-
-
-
+function showProductRelated(array){
+    
+    let htmlContentToAppend = "";
+    
+            htmlContentToAppend += `
+            <a href="product-info.html" >
+                        
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" >
+  <div class="carousel-inner" >
+    <div class="carousel-item active" data-interval="3000">
+      <img src="` + array[1].imgSrc + `" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item " data-interval="3000">
+      <img src="` + array[3].imgSrc + `" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>          
+            </a>
+            `
+        document.getElementById("related").innerHTML = htmlContentToAppend;
+    
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -154,6 +160,15 @@ document.addEventListener("DOMContentLoaded", function(){
             showProductInfo(categoriesArray);
         }
     });
+    getJSONData( PRODUCTS_URL).then(function(resultRel){
+        if (resultRel.status === "ok")
+        {
+            relatedArray = resultRel.data;
+            //Muestro los comentarios ordenados
+            showProductRelated(relatedArray);  
+        }
+    });
+
     getJSONData( PRODUCT_INFO_COMMENTS_URL).then(function(resultCom){
         if (resultCom.status === "ok")
         {
@@ -161,15 +176,7 @@ document.addEventListener("DOMContentLoaded", function(){
             //Muestro los comentarios ordenados
             showProductComent(comentsArray);
            
-        }
-
-
-//linea para mostrar JSON en consola
-        var v = resultCom.data
-        console.log(v)
-
-
-
+        }                                                
 
     });
     document.getElementById("radio1").addEventListener("click", function(){
@@ -212,7 +219,5 @@ document.addEventListener("DOMContentLoaded", function(){
             window.sessionStorage.setItem("star", pun)
                 
     });
-//linea para mostrar sessionStorage en consola
-    console.log(sessionStorage);
-    
+                                                       
 });

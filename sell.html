@@ -30,14 +30,20 @@
     <link href="css/dropzone.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
+    <nav class="site-header sticky-top py-1 barra">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-            <a class="py-2 d-none d-md-inline-block use" style="color: white;" >  </a> 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                👥<a class="py-2 d-none d-md-inline-block use" style="color: white;" >  </a> </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="cart.html">🛒 Ver mi carrito</a>
+                <a class="dropdown-item" href="my-profile.html">👱🏼 Mi perfil</a>
+                <form action="login.html" onsubmit="return cerrarsesión()"> <button type="submit" class="dropdown-item"   >🔒Cerrar sesión</button> </form>
+              </div>
         </div>
     </nav>
       <div class="container">

@@ -155,3 +155,7 @@ a.custom-card:hover {
 }
 
 .instar:checked ~ label{color:orange;}
+
+.barra {
+  background-color: black;
+}
