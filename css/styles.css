@@ -159,3 +159,18 @@ a.custom-card:hover {
 .barra {
   background-color: black;
 }
+
+.gif {
+  /* background-image:  url('../img/perroCarro.gif'); */
+  background-size: 100%;
+  inline-size: 100%;
+  color: black;
+}
+.butt{
+  width: 50px;
+}
+
+.textblue {
+  color: blue;
+  font-weight: bold;
+}

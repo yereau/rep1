@@ -33,7 +33,7 @@
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
+<body >
   <nav class="site-header sticky-top py-1 barra">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -50,13 +50,50 @@
         </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="row" >
+    <div class="text-center p-4 gif" >
+      <br>
+      <h1 > Mi carrito </h1>
+
+      </div>
+      
+      <div  id="cart-prod1" class="list-group  prod" ></div>
+      
+      <div>
+        <form action="" onsubmit="return comprado()" onclick="return costeEnvio()">
+        <a  class="list-group-item  prod" style="width: 600px;">
+          <h2 class="gif">Envío </h2>
+             
+                <span>Dirección:</span>
+                <input type="text" style="width: 300px;" placeholder="Calle_numero_esquina" required>
+                <span>País:</span>
+                <input type="text" style="width: 100px;" required>
+                   <br> <br>
+                <span >Tipo de envío</span>
+                      <select name="envío" id="tipoEnvio" value=0 required>
+                          <option value=15 >Premium (2 a 5 días)</option>
+                          <option value=7 >Express (5 a 8 días)</option>
+                          <option value=5 >Standard (12 a 15 días)</option>
+                      </select>
+                         <br> <br>
+                      <h5>Costo de envío: UYU <span id='totalE'>0</span></h5>
+                      <h4 class="gif">Total: UYU <span id='totalF'>0</span></h4>
+             
+        </a>
+        <a  class="list-group-item  prod" style="width: 600px;">
+           <h2 class="gif">Forma de pago </h2>
+           
+            <p> <input name="pago" type="radio" id="tarjeta" onclick="return formaPago()" required> Tarjeta de crédito.</p> 
+            <p> <input name="pago" type="radio" id="banco" onclick="return formaPago()" required> Transferencia bancaria.</p>
+           
+           <div id="tipoPago" ></div>
+           <div id="tipoPago2" ></div>
+        </a>
+        <button type="submit" > Comprar </button>
+      </form>
     </div>
+
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
