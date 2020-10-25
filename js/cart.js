@@ -60,41 +60,7 @@ function formaPago(){
     let pagoT = document.getElementById("tarjeta").checked;
     let pagoB = document.getElementById("banco").checked;
    
-        let htmlContentToAppend = "";
-        htmlContentToAppend += `
-
-        <a id="ocultar" class="list-group-item  prod" style="height: 207px;">
-        <div class="row" >
-            
-                    <div class="d-flex w-100 justify-content-between">
-                        <div>
-                        <p> <span class="gif textblue">N° Tarjeta </span>
-                            <input type="textarea" required>  </p>
-                        <p> <span class="gif textblue">N° Vencimiento </span>
-                            <span class="gif textblue" > Mes</span>
-                            <select name="envío" id="tipoEnvio" value=0 required>
-                                <option > Enero </option>
-                                <option > Febrero </option>
-                                <option > Marzo </option>
-                                <option > Abril </option>
-                                <option > Mayo </option>
-                                <option > Junio </option>
-                                <option > Julio </option>
-                                <option > Agosto </option>
-                                <option > Setiembre </option>
-                                <option > Octubre </option>
-                                <option > Noviembre </option>
-                                <option > Diciembre </option>
-                            </select>
-                                <span class="gif textblue"> Año</span>
-                                <input type="textarea" required style="width: 60px;">  </p>
-                                        <span class="gif textblue"> Cód.Seguridad</span>
-                                        <input type="textarea" required style="width: 80px;">  </p>
-                        </div>            
-                        
-                    </div>
-        </div>
-        </a>     `
+        
         let htmlContentToAppend1 = "";
 
         htmlContentToAppend1 += ` 
@@ -128,6 +94,8 @@ function formaPago(){
 }
 function comprado(){
     window.alert('Compra exitosa');
+
+    
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

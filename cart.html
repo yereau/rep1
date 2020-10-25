@@ -61,7 +61,7 @@
       <div  id="cart-prod1" class="list-group  prod" ></div>
       
       <div>
-        <form action="" onsubmit="return comprado()" onclick="return costeEnvio()">
+        <form action="" onsubmit="return comprado()" onclick="return costeEnvio()" >
         <a  class="list-group-item  prod" style="width: 600px;">
           <h2 class="gif">Envío </h2>
              
@@ -84,15 +84,71 @@
         <a  class="list-group-item  prod" style="width: 600px;">
            <h2 class="gif">Forma de pago </h2>
            
-            <p> <input name="pago" type="radio" id="tarjeta" onclick="return formaPago()" required> Tarjeta de crédito.</p> 
+            <p> <input name="pago" type="radio" id="tarjeta" onclick="return formaPago()" data-toggle="modal" data-target="#exampleModal" required> Tarjeta de crédito.</p> 
             <p> <input name="pago" type="radio" id="banco" onclick="return formaPago()" required> Transferencia bancaria.</p>
            
            <div id="tipoPago" ></div>
            <div id="tipoPago2" ></div>
         </a>
-        <button type="submit" > Comprar </button>
+        <button type="submit" class="btn btn-primary"> Comprar </button>
       </form>
     </div>
+
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form action="" onsubmit="return tarjeta()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingrese los datos de su tarjeta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <a id="ocultar" class="list-group-item  prod" style="height: 207px;">
+          <div class="row" >
+                      <div class="d-flex w-100 justify-content-between">
+                          <div>
+                          <p> <span class="gif textblue">N° Tarjeta </span>
+                              <input type="textarea" required>  </p>
+                          <p> <span class="gif textblue">N° Vencimiento </span>
+                              <span class="gif textblue" > Mes</span>
+                              <select name="envío" id="tipoEnvio" value=0 required>
+                                  <option > Enero </option>
+                                  <option > Febrero </option>
+                                  <option > Marzo </option>
+                                  <option > Abril </option>
+                                  <option > Mayo </option>
+                                  <option > Junio </option>
+                                  <option > Julio </option>
+                                  <option > Agosto </option>
+                                  <option > Setiembre </option>
+                                  <option > Octubre </option>
+                                  <option > Noviembre </option>
+                                  <option > Diciembre </option>
+                              </select>
+                                  <span class="gif textblue"> Año</span>
+                                  <input type="textarea" required style="width: 60px;">  </p>
+                                          <span class="gif textblue"> Cód.Seguridad</span>
+                                          <input type="textarea" required style="width: 80px;">  </p>
+                          </div>            
+                          
+                      </div>
+          </div>
+          </a>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
 
   </div>
   <div id="spinner-wrapper">
